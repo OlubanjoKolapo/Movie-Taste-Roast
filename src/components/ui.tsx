@@ -82,8 +82,8 @@ export function Segmented<T extends string>({
   size = "md",
 }: {
   value: T;
-  options: { value: T; label: string }[];
-  onChange: (v: T) => void;
+  options: { value: NoInfer<T>; label: string }[];
+  onChange: (v: NoInfer<T>) => void;
   label: string;
   size?: "sm" | "md";
 }) {
@@ -108,7 +108,7 @@ export function Segmented<T extends string>({
   );
 }
 
-export function Tabs<T extends string>({ value, tabs, onChange, label }: { value: T; tabs: { value: T; label: string }[]; onChange: (v: T) => void; label: string }) {
+export function Tabs<T extends string>({ value, tabs, onChange, label }: { value: T; tabs: { value: NoInfer<T>; label: string }[]; onChange: (v: NoInfer<T>) => void; label: string }) {
   return (
     <div role="tablist" aria-label={label} className="no-scrollbar flex gap-6 overflow-x-auto border-b border-white/[0.08]">
       {tabs.map((t) => (
